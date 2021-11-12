@@ -25,6 +25,6 @@ class ReservationController extends Controller
 
     function reservationdata(){
       $data=Reservation::all();
-      return view("admin.reservation",["data"=>$data]);
+      return view("admin.reservation",["datas"=>$data]);
     }
 }

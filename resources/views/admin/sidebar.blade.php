@@ -6,6 +6,15 @@
     </div>
     <ul class="nav">
 
+      <li class="nav-item menu-items">
+        <a class="nav-link" href="/">
+          <span class="menu-icon">
+            <i class="mdi mdi-table-large"></i>
+          </span>
+          <span class="menu-title">Home</span>
+        </a>
+      </li>
+
 
       <li class="nav-item menu-items">
         <a class="nav-link" href="{{ url('users') }}">
@@ -43,6 +52,22 @@
           <span class="menu-title">Chefs</span>
         </a>
       </li>
+
+
+      <li class="nav-item menu-items">
+        <a class="nav-link" href="orders">
+          <span class="menu-icon">
+            <i class="mdi mdi-table-large"></i>
+          </span>
+          <span class="menu-title">Orders</span>
+        </a>
+      </li>
+
+
+
+
+
+
 
     </ul>
   </nav>

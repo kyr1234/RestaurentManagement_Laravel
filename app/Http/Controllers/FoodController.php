@@ -36,4 +36,17 @@ function updateindb(Request $req, $id){
 
 }
 
+function addfood(Request $req){
+  $newfood=new Food;
+  $newfood->title=$req->title;
+  $newfood->description=$req->description;
+  $newfood->price=$req->price;
+  $image=$req->image;
+  $imagename=time()+'.'+$image->getClientOriginalExtension();
+  $req->image->move("/foodfolder",$imagename);
+  $newfood->image=$imagename;
+  $newfood->save();
+  return redirect()->back();
+}
+
 }

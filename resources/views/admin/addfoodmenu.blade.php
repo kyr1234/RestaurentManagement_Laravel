@@ -23,7 +23,7 @@
   @include("admin.sidebar")
 
             <div class="form" style="display:flex; justify-content:center; align-items:center; flex-direction:column; position:relative; left:30%;" >
-                <form  method="POST" enctype="multipart/form-data" >
+                <form  method="post" enctype="multipart/form-data"  method="/addfood">
                     <h3>Add New Food Item To Menu</h3>
 
                     <div style="margin-bottom:20px; ">
@@ -45,7 +45,7 @@
                     <input style="margin-left:10px;color:black;" type="file" placeholder="Enter the Image" name="image">
                     </div>
                     <div style="display:flex; justify-content:center; align-items:center;">
-                        <button type="submit" style="background-color:white; padding:10px;color:black;"> <a href="addfood">Submit</a></button>
+                        <button type="submit" style="background-color:white; padding:10px;color:black;"> Submit</button>
                     </div>
                 </form>
 
@@ -79,13 +79,6 @@
     </div>
 
 </div>
-
-
-
-
-
-
-
 
         @include("admin.scripts")
     </body>

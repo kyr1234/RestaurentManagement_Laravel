@@ -18,7 +18,7 @@
 
         <div style="position:relative; top:10rem; left:10rem">
 
-<h3 style="text-align:center;margin-bottom:2rem;">Users Table</h3>
+        <h3 style="text-align:center;margin-bottom:2rem;">Users Table</h3>
 
         <table style="border:3px solid gray; padding:30px;">
 

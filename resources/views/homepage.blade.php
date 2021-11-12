@@ -53,30 +53,36 @@ https://templatemo.com/tm-558-klassy-cafe
                             <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
                             <li class="scroll-to-section"><a href="#about">About</a></li>
 
-                        <!--
-                            <li class="submenu">
-                                <a href="javascript:;">Drop Down</a>
-                                <ul>
-                                    <li><a href="#">Drop Down Page 1</a></li>
-                                    <li><a href="#">Drop Down Page 2</a></li>
-                                    <li><a href="#">Drop Down Page 3</a></li>
-                                </ul>
-                            </li>
-                        -->
+                   
                             <li class="scroll-to-section"><a href="#menu">Menu</a></li>
                             <li class="scroll-to-section"><a href="#chefs">Chefs</a></li>
-                            <li class="submenu">
-                                <a href="javascript:;">Features</a>
-                                <ul>
-                                    <li><a href="#">Features Page 1</a></li>
-                                    <li><a href="#">Features Page 2</a></li>
-                                    <li><a href="#">Features Page 3</a></li>
-                                    <li><a href="#">Features Page 4</a></li>
-                                </ul>
-                            </li>
-                            <!-- <li class=""><a rel="sponsored" href="https://templatemo.com" target="_blank">External URL</a></li> -->
+                          
                             <li class="scroll-to-section"><a href="#reservation">Contact Us</a></li>
+                            
+                             @auth                          
+                                @if (Auth::user()->usertype=='1')
+                                <li>
+                                    <a href="redirects" class="text-sm text-gray-700 dark:text-gray-500 underline">Admin</a>
+                                </li>
+                                @endif
+                            @endauth
+                            
+                            
+                            @auth
+                            <li>
+                            <a href="/showcart/{{Auth::id()}}">
+                         <!--   Cart[$count] -->
+                            </a>
+                            </li>
+                          
+                            @endauth
+                            
+                            @guest
 
+                            Cart[0]
+                            @endguest
+                            
+                            </a></li>
 <li>
   @if (Route::has('login'))
       <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
@@ -84,7 +90,6 @@ https://templatemo.com/tm-558-klassy-cafe
           <li>
             <x-app-layout>
             </x-app-layout>
-
          </li>
           @else
           <li>
@@ -209,7 +214,10 @@ https://templatemo.com/tm-558-klassy-cafe
         <div class="menu-item-carousel">
             <div class="col-lg-12">
                 <div class="owl-menu-item owl-carousel">
-@foreach($datas as $data)
+             @foreach($datas as $data)
+                 
+                 <form action="/addcart/{{$data->id()}}" method="POST">
+                 @csrf
                     <div class="item">
                         <div class='card 'style="background-image:url("/foodfolder/{{ $data->image }}")">
                             <div class="price"><h6>${{ $data->price }}</h6></div>
@@ -221,7 +229,11 @@ https://templatemo.com/tm-558-klassy-cafe
                               </div>
                             </div>
                         </div>
+
+                        <input type="number" name="quantity" min="1" value="1">
+                        <input type="submit" name="cart" value="Add To Cart" class="rounded">
                     </div>
+                    </form>
                   @endforeach
                   <!--
                     <div class="item">
