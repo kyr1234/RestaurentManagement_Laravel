@@ -18,12 +18,12 @@
 
         <div style="position:relative; top:10rem; left:10rem">
 
-        <h3 style="text-align:center;margin-bottom:2rem;"> Customers Orders</h3>
+        <h3 style="text-align:center;margin-bottom:2rem;"> Search Results</h3>
 
 <div>
     <form action="search" method="get">
         @csrf
-        <input type="text" name="search">
+        <input type="text" name="search" value="{{ searchvalue }}">
         <input type="submit" value="Search" class="btn btn-success" style="color:white;">
     </form>
 </div>

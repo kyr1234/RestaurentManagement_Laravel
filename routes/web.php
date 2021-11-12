@@ -35,3 +35,4 @@ Route::get("/showcart/{id}",[CartController::class,"showcart"]);
 Route::post("/delete/{id}",[CartController::class,"deleteitem"]);
 Route::get("/placeorder",[PlaceOrder::class,"placeorder"]);
 Route::get("/orders",[PlaceOrder::class,"vieworder"]);
+Route::get("/search",[PlaceOrder::class,"findorder"]);

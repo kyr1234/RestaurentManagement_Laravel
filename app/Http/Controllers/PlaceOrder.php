@@ -25,6 +25,13 @@ class PlaceOrder extends Controller
     }
 
     function vieworder(){
-        return view("admin.orders");
+        $data=order::all();
+        return view("admin.orders",["datas"=>$data]);
+    }
+
+    function findorder(Request $req){
+        $searchvalue=$req->search;
+       $data=order::where('name',"LIKE","%".$req->search."%")->orWhere('phoneno',"LIKE","%".$req->search."%")->orWhere('address',"LIKE","%".$req->search."%")->orWhere('foodname',"LIKE","%".$req->search."%")->get();
+       return view("admin.searchorder",["datas"=>$data,"searchvalue"=>$searchvalue]);
     }
 }
